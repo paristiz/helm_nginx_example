@@ -2,18 +2,18 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 namespace:
-  name: demo
+  name: prod
   
 configmap:
-  data: "version: alpine" 
+  data: "version: 1.17.0" 
 
-replicaCount: 3
+replicaCount: 2
 
 image:
   repository: nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "alpine"
+  tag: "1.17.0  "
 
 imagePullSecrets: []
 nameOverride: ""
@@ -43,7 +43,7 @@ podAnnotations: {}
 
 service:
   type: ClusterIP
-  port: 8111
+  port: 80
 
 ingress:
   enabled: false
@@ -67,10 +67,10 @@ resources: {}
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
+  #   cpu: 70m
+  #   memory: 256Mi
    requests:
-     cpu: 50m
+     cpu: 70m
      memory: 256Mi
 
 #autoscaling:
